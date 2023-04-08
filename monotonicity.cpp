@@ -3,15 +3,12 @@
 size_t monotonicity(const int a[], size_t size, size_t& len) {
     
     int pt = 0;
-
     int pt_malejacy = 0;
     int len_malejacy = 0;
     int len_malejacy2 = 0;
-
     int index = 0;
     int len2 = 0;
     len = 0;
-
     bool mal = false;
 
     for (int i = 0; i < size; i++)
@@ -131,8 +128,6 @@ int main() {
     ind = monotonicity(a3, size, len);
     printResult(a3, size, ind, len);
 
-    /*
-
     int a4[] = { 3,3,2,3,3 };
     size = sizeof(a4) / sizeof(*a4);
     ind = monotonicity(a4, size, len);
@@ -147,7 +142,4 @@ int main() {
     size = sizeof(a6) / sizeof(*a6);
     ind = monotonicity(a6, size, len);
     printResult(a6, size, ind, len);
-
-    */
-    
 }
