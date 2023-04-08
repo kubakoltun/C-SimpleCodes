@@ -11,89 +11,70 @@ size_t monotonicity(const int a[], size_t size, size_t& len) {
     len = 0;
     bool mal = false;
 
-    for (int i = 0; i < size; i++)
-    {
-        if (a[i] > a[i-1] && i + 2 < size && i - 1 != -1)
-        {
+    for (int i = 0; i < size; i++) {
+        if (a[i] > a[i-1] && i + 2 < size && i - 1 != -1) {
             pt = i;
         }
-        else if (a[i] < a[pt] && a[pt] > a[pt - 1])
-        {
-            if (len > len2)
-            {
+        else if (a[i] < a[pt] && a[pt] > a[pt - 1]) {
+            if (len > len2) {
                 len2 = len;
                 len = 1;
             }
         }
-        else if (pt > 0)
-        {
-            if (i + 1 == size && a[i] > a[pt - 1])
-            {
+        else if (pt > 0) {
+            if (i + 1 == size && a[i] > a[pt - 1]) {
                 len--;
             }
         }
 
-        if (a[i] < a[i-1] && i+2 < size && i - 1 != -1)
-        {
+        if (a[i] < a[i-1] && i+2 < size && i - 1 != -1) {
             mal = true;
             pt_malejacy = i;
         }
-        else if (a[i] > a[pt_malejacy] && a[pt_malejacy] < a[pt_malejacy - 1])   
-        {
-            if (len_malejacy > len_malejacy2)
-            {
+        else if (a[i] > a[pt_malejacy] && a[pt_malejacy] < a[pt_malejacy - 1]) {
+            if (len_malejacy > len_malejacy2) {
                 len_malejacy2 = len_malejacy;
                 len_malejacy = 2;
-                if (pt_malejacy > 0 && pt == 0)
-                {
+                if (pt_malejacy > 0 && pt == 0) {
                     len -= 2;
                 }
             }
         }
-        else if (pt_malejacy > 0)
-        {
-            if (i + 1 == size && a[i] < a[pt_malejacy - 1])
-            {
+        else if (pt_malejacy > 0) {
+            if (i + 1 == size && a[i] < a[pt_malejacy - 1]) {
                 len_malejacy--;
             }
         }
 
          len++;
-         if (mal == true)
-         {
+         if (mal == true) {
              len_malejacy++;
          }
     }
 
 
-    if (len > len2)
-    {
+    if (len > len2) {
         index = pt;
     }
-    if (len_malejacy > len_malejacy2 && len_malejacy > len)
-    {
+    if (len_malejacy > len_malejacy2 && len_malejacy > len) {
         index = pt_malejacy;
         len = len_malejacy;
     }
-    else if (len_malejacy == len_malejacy2 && len_malejacy > len)
-    {
-         if (index < pt_malejacy)
-         {
+    else if (len_malejacy == len_malejacy2 && len_malejacy > len) {
+         if (index < pt_malejacy) {
              index = index;
          }
          len = len_malejacy;
     }
-    else if (len_malejacy == len && len > len2)
-    {
-         if (pt < pt_malejacy)
-         {
+    else if (len_malejacy == len && len > len2) {
+         if (pt < pt_malejacy) {
              index = pt;
          }
-         else
-         {
+         else {
              index = pt_malejacy;
          }
     }
+    
     return index; 
 }
 
@@ -108,7 +89,7 @@ void printResult(const int a[], size_t size,
         cout << a[i] << " ";
     cout << "] starting at index " << ind
         << " and of length " << len << "\n\n";
-}
+    }
 
 int main() {
     size_t len = 0, ind = 0, size = 0;
