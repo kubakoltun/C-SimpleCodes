@@ -27,6 +27,7 @@ Node<T>* arrayToList(const T arr[], size_t size) {
 template <typename T, typename Pred>
 void removeBad(Node<T>*& head, Pred p) {
     if (head == nullptr) {
+    
         return;
     }
     Node<T>* prev = nullptr;
@@ -50,8 +51,7 @@ void removeBad(Node<T>*& head, Pred p) {
             if (head != nullptr && head->next != nullptr) {
                 prev = head;
             }
-        } 
-        else {
+        } else {
             prev = head;
             head = head->next;
         }
